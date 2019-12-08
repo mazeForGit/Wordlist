@@ -159,14 +159,14 @@ func GetTestsList(name string) []string {
 	return list
 }
 func AddWordToList(wl WordList, name string) (WordList, error) {
-	fmt.Println("data/model.AddWordToList")
-	fmt.Println("name=", name)
-	fmt.Println("wl.containsWord(name)=", wl.containsWord(name))
+	//fmt.Println("data/model.AddWordToList")
+	//fmt.Println("name=", name)
+	//fmt.Println("wl.containsWord(name)=", wl.containsWord(name))
 	if wl.containsWord(name) {
 		return wl, errors.New("already exists")
 	}
-	fmt.Println("before append wl=", wl)
+	//fmt.Println("before append wl=", wl)
 	wl = appendWord(wl, name)
-	fmt.Println("after append wl=", wl)
+	//fmt.Println("after append wl=", wl)
 	return wl, nil
 }
