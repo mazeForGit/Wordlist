@@ -1,7 +1,7 @@
 package main
 
 import (
-	routers "github.com/mazeForGit/WordlistExtractor/routers"
+	routers "github.com/mazeForGit/Wordlist/routers"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/static"
 	log "github.com/sirupsen/logrus"

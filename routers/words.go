@@ -3,7 +3,7 @@ package routers
 import (
 	"strconv"
 	"github.com/gin-gonic/gin"
-	data "github.com/mazeForGit/WordlistExtractor/data"
+	data "github.com/mazeForGit/Wordlist/data"
 	"fmt"
 	//"io/ioutil"
 )
@@ -77,17 +77,7 @@ func WordsGET(c *gin.Context) {
 	
 	fmt.Println("parsing vars .. format = " + format + ", name = " + name + ", testOnly = " + strconv.FormatBool(testOnly) + ", newOnly = " + strconv.FormatBool(newOnly))
 		
-	if format != "" && name == "" {
-		// complete list by format
-		if format == "json" {
-			c.JSON(200, data.GlobalWordList.Words)
-		} else if format == "csv" {
-			c.String(200, data.GetWordsListAsCsv("", testOnly, newOnly))
-		} else {
-			s = data.Status{Code: 422, Text: "unknown format = " + format}
-			c.JSON(422, s)
-		}
-	} else if format == "" && name != "" {
+	if format == "" && name != "" {
 		// look up by name
 		w, err := data.GlobalWordList.GetWordByName(name)
 		if (err != nil) {
@@ -96,19 +86,19 @@ func WordsGET(c *gin.Context) {
 			return
 		}
 		c.JSON(200, w)
-	} else if format != "" && name != "" {
-		// complete list by format and name
+	} else if format != "" {
+		// list by format and name
 		if format == "json" {
 			c.JSON(200, data.GetWordsList(name, testOnly, newOnly))
 		} else if format == "csv" {
 			c.String(200, data.GetWordsListAsCsv(name, testOnly, newOnly))
-		}else {
+		} else {
 			s = data.Status{Code: 422, Text: "unknown format = " + format}
 			c.JSON(422, s)
 		}
 	} else {
-		// default is json
-		c.JSON(200, data.GetWordsList(name, testOnly, newOnly))
+		// default format is json
+		c.JSON(200, data.GetWordsList("", testOnly, newOnly))
 	}
 }
 func WordsPOST(c *gin.Context) {
