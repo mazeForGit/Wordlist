@@ -1,11 +1,10 @@
 package routers
 
 import (
+	"fmt"
 	"strconv"
 	"github.com/gin-gonic/gin"
 	data "github.com/mazeForGit/Wordlist/data"
-	"fmt"
-	//"io/ioutil"
 )
 
 func WordsByIdDELETE(c *gin.Context) {

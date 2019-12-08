@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"github.com/gin-gonic/gin"
 	"encoding/json"
-	data "github.com/mazeForGit/WordlistExtractor/data"
+	data "github.com/mazeForGit/Wordlist/data"
 )
 
 func Test_WordListGET_emptyData(t *testing.T) {
