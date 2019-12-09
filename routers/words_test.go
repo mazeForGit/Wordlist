@@ -4,10 +4,11 @@ import (
 	"testing"
 	"net/http/httptest"
 	"net/http"
-	"github.com/gin-gonic/gin"
 	"encoding/json"
-	data "wordlist/data"
 	"bytes"
+	
+	"github.com/gin-gonic/gin"
+	data "github.com/mazeForGit/Wordlist/data"
 )
 
 func Test_WordsGET_emptyData(t *testing.T) {

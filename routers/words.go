@@ -3,8 +3,9 @@ package routers
 import (
 	"fmt"
 	"strconv"
+	
 	"github.com/gin-gonic/gin"
-	data "wordlist/data"
+	data "github.com/mazeForGit/Wordlist/data"
 )
 
 func WordsByIdDELETE(c *gin.Context) {

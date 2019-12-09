@@ -1,11 +1,13 @@
 package main
 
 import (
-	routers "wordlist/routers"
+	"os"
+	
 	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/static"
 	log "github.com/sirupsen/logrus"
-	"os"
+	
+	routers "github.com/mazeForGit/Wordlist/routers"
 )
 
 func port() string {
