@@ -1,7 +1,6 @@
 branch-defaults:
   master:
-    environment: null
-    group_suffix: null
+    environment: Wordlist-dev
 global:
   application_name: Wordlist
   branch: null
