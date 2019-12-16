@@ -42,7 +42,6 @@ func main() {
 	router.PUT("/wordlist", routers.WordListPUT)
 	router.DELETE("/wordlist", routers.WordListDELETE)
 
-	log.Info("Starting gowebapp on port " + port())
-
+	log.Info("Starting server on port " + port())
 	router.Run(port())
 }

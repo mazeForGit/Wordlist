@@ -44,7 +44,7 @@ func WordListPUT(c *gin.Context) {
 	var s data.Status
 
 	removeCount := strconv.Itoa(len(data.GlobalWordList.Words))
-	err := c.Bind(&data.GlobalWordList)
+	err := c.BindJSON(&data.GlobalWordList)
 	if err != nil {
 		s = data.Status{Code: 422, Text: "unprocessable entity"}
 		c.JSON(422, s)
