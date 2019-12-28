@@ -12,6 +12,8 @@
 *.out
 
 # Elastic Beanstalk Files
+.ebextensions
+.ebextensions/*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
