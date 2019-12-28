@@ -38,7 +38,19 @@ func WordListDELETE(c *gin.Context) {
 	c.JSON(200, s)
 }
 func WordListGET(c *gin.Context) {
-	c.JSON(200, data.GlobalWordList)
+	var s data.Status
+	var vars map[string][]string
+	vars = c.Request.URL.Query()
+	var testOnly bool = false
+	
+	if _, ok := vars["testOnly"]; ok {
+		t := c.Request.URL.Query().Get("testOnly")
+		if t == "true" {
+			testOnly = true
+		} 
+	}
+	
+	c.JSON(200, data.GetGlobalWordList(testOnly))
 }
 func WordListPUT(c *gin.Context) {
 	var s data.Status

@@ -95,6 +95,28 @@ func RebuildWordAndTestIndex(wl WordList) WordList {
 	
 	return wl
 }
+func GetGlobalWordList(testOnly bool) WordList {
+	fmt.Println("GetGlobalWordList .. testOnly = " + strconv.FormatBool(testOnly))
+	
+	if testOnly {
+		var gwl WordList
+		
+		for i := 0; i < len(GlobalWordList.Words); i++ {
+			if GlobalWordList.Words[i].Tests != nil {
+				wl = append(wl, GlobalWordList.Words[i])
+			}
+		} 
+	
+		gwl.Tests = data.GlobalWordList.Tests
+		gwl.Type = data.GlobalWordList.Type
+		gwl.LastUsedId = data.GlobalWordList.LastUsedId
+		gwl.Count = len(gwl)
+		
+		return gwl
+	} 
+	
+	return data.GlobalWordList
+}
 func GetWordsList(name string, testOnly bool, newOnly bool) []Word {
 	fmt.Println("GetWordsList .. name = " + name + ", testOnly = " + strconv.FormatBool(testOnly) + ", newOnly = " + strconv.FormatBool(newOnly))
 

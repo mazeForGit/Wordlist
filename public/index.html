@@ -107,5 +107,39 @@
                 </ul>
         </li>
     </ul>
+	
+	
+	<h3>reporter</h3>
+		<p></p>Motivation came from reading C.J.Jung <i>"Personality Types"</i>.
+		<br />
+
+		<p></p>The <b>wordlist</b> contains a list of german adjectives taken from <b><i>dwds</i></b>.
+		<br />The words are stored for each domain and contains the number of how many times the word occured.
+		<br />Within the global reference list there are all words with a) the count of how many times the word is also within a domain and the sum of number of how many times the word occured within a domain.
+		<p></p>The <b>testlist</b> contains the evaluation against the selected domain and test, e.g. <b><i>'Big Five'</i></b> [default], <b><i>'DISC'</i></b> or <b><i>'Ayurveda'</i></b>, whereby each test has predefined categories.
+		<br />The meaning of the data are (where [c]ount and [o]ccurance) ..
+		<ul>
+			<li>[l]ocal: [c] .. number of words matching a given test.category for selected domain, [o-sum] .. sum over number of times a word was found</li>
+			<li>[g]lobal: [c] .. number of words matching a given test.category for all available domains, [c-sum] .. is the sum of all counts for matching word</li>
+			<li>[r]eference: [c] .. number of all available words within the reference list for given test.category, [c-sum] .. is the sum of all counts</li>
+		</ul>
+						
+		<br />example for one category
+		<table border="1">
+			<thead>
+				<tr><th>result</th><th>words.r</th><th>domain.A</th><th>domain.B</th><th>domain.C</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>c=3,o-sum=15</td><td>word.1</td><td>c=1, o=5</td><td>c=1, o=5</td><td>c=1, o=5</td></tr>
+				<tr><td>c=2,o-sum=10</td><td>word.2</td><td>c=0, o=0</td><td>c=1, o=5</td><td>c=1, o=5</td></tr>
+				<tr><td>c=1,o-sum=5</td><td>word.3</td><td>c=0, o=0</td><td>c=0, o=0</td><td>c=1, o=5</td></tr>
+				<tr><td>c=0,o-sum=0</td><td>word.4</td><td>c=0, o=0</td><td>c=0, o=0</td><td>c=0, o=0</td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td>result.l</td><td></td><td>c=1,o-sum=5</td><td>c=2,o-sum=10</td><td>c=3,o-sum=15</td></tr>
+				<tr><td>result.g</td><td></td><td>c=1,c-sum=3,o-sum=15</td><td>c=2,c-sum=5,o-sum=25</td><td>c=3,c-sum=6,o-sum=30</td></tr>
+				<tr><td>result.r</td><td></td><td>c=4,c-sum=6,o-sum=30</td><td>c=4,c-sum=6,o-sum=30</td><td>c=4,c-sum=6,o-sum=30</td></tr>
+			</tbody>
+		</table>
+	
 </body>
 </html>
