@@ -12,6 +12,7 @@ type Status struct {
 type Test struct {
     Name  string	`json:"name"`
     Category  string	`json:"category"`
+    Load  int	`json:"load"`
 }
 
 type Word struct {
